@@ -19,7 +19,6 @@ public class HelloController {
 
     @PostMapping(value = "/world")
     public String helloWorld() {
-
         return "Hello World";
     }
 
