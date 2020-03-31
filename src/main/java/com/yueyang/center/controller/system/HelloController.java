@@ -1,5 +1,7 @@
 package com.yueyang.center.controller.system;
 
+import com.yueyang.center.enums.LiveErrorCodeEnum;
+import com.yueyang.center.exception.NoahException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +24,14 @@ public class HelloController {
     @ApiModelProperty("你好世界")
     @PostMapping(value = "/world")
     public String helloWorld(@RequestParam String name) {
-        return "Hello World" + "," + name;
+        throw new NoahException(LiveErrorCodeEnum.INSERT_ERR);
+
+    }
+
+    @ApiModelProperty("测试返回")
+    @PostMapping(value = "/testReturn")
+    public String testReturn(@RequestParam String name) {
+        return  "返回值测试";
     }
 
 }
