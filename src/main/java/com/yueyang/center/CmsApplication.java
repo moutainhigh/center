@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.ComponentScan;
 
-@MapperScan(value = "com.yueyang.domain.mapper")
+@MapperScan(value = "com.yueyang.center.domain.mapper")
 @SpringBootApplication(scanBasePackages = "com.yueyang.center")
 @ComponentScan(basePackages = "com.yueyang")
 @ServletComponentScan

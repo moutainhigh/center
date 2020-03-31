@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yueyang.center.domain.mapper.IApprovalLogDAO">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yueyang.center.domain.entity.ApprovalLog">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="creator" jdbcType="BIGINT" property="creator"/>
+        <result column="createTime" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="modifier" jdbcType="BIGINT" property="modifier"/>
+        <result column="modifyTime" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="tenantId" jdbcType="VARCHAR" property="tenantId"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="bizId" jdbcType="VARCHAR" property="bizId"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="status" jdbcType="VARCHAR" property="status"/>
+        <result column="issuer" jdbcType="VARCHAR" property="issuer"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        `id`,`creator`,`createTime`,`modifier`,`modifyTime`,`tenantId`,
+        type, bizId, remark, status, issuer
+    </sql>
+
+
+    <insert id="insert" parameterType="com.yueyang.center.domain.entity.ApprovalLog" useGeneratedKeys="true" keyProperty="id">
+
+        INSERT INTO approval_log (
+
+        <if test="creator!=null">
+            `creator`,
+        </if>
+        <if test="createTime!=null">
+            `createTime`,
+        </if>
+        <if test="modifier!=null">
+            `modifier`,
+        </if>
+        <if test="modifyTime!=null">
+            `modifyTime`,
+        </if>
+        <if test="tenantId!=null">
+            `tenantId`,
+        </if>
+        <if test="type!=null">
+            `type`,
+        </if>
+        <if test="bizId!=null">
+            `bizId`,
+        </if>
+        <if test="remark!=null">
+            `remark`,
+        </if>
+        <if test="status!=null">
+            `status`,
+        </if>
+        <if test="issuer!=null">
+            `issuer`
+        </if>
+        ) VALUES (
+        <if test="creator!=null">
+            #{creator},
+        </if>
+        <if test="createTime!=null">
+            #{createTime},
+        </if>
+        <if test="modifier!=null">
+            #{modifier},
+        </if>
+        <if test="modifyTime!=null">
+            #{modifyTime},
+        </if>
+        <if test="tenantId!=null">
+            #{tenantId},
+        </if>
+        <if test="type!=null">
+            #{type},
+        </if>
+        <if test="bizId!=null">
+            #{bizId},
+        </if>
+        <if test="remark!=null">
+            #{remark},
+        </if>
+        <if test="status!=null">
+            #{status},
+        </if>
+        <if test="issuer!=null">
+            #{issuer}
+        </if>
+        )
+        <selectKey keyProperty="id" order="AFTER" resultType="Long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    <select id="list" resultType="com.yueyang.center.domain.entity.ApprovalLog">
+        select
+        <include refid="Base_Column_List"/>
+        from `approval_log`
+        <where>
+
+            <if test="type !=null">
+                and `type` = #{type}
+            </if>
+            <if test="bizId !=null">
+                and `bizId` =#{bizId}
+            </if>
+            <if test="status !=null">
+                and `status` =#{status}
+            </if>
+
+        </where>
+        order by createTime desc
+    </select>
+
+
+</mapper>

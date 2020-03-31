@@ -1,0 +1,45 @@
+package com.yueyang.center.domain.bo.report;
+
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+import java.util.Date;
+
+/**
+ * @program: live
+ * @description: 待签报道
+ * @author: qinxiangyang
+ * @create: 2020-03-27 11:31
+ **/
+@Data
+public class SearchPendReportBO {
+
+    @ApiModelProperty("开始时间")
+    Date startTime;
+
+    @ApiModelProperty("结束时间")
+    Date endTime;
+
+    /**
+     * 类型 1.直播2.追踪报道
+     */
+    @ApiModelProperty(value = "类型 1.直播2.追踪报道")
+    private Integer type;
+
+    @ApiModelProperty(value = "报道状态 1草稿2待审3发布4退回", hidden = true)
+    private Integer status = 2;
+
+    @ApiModelProperty(value = "标题")
+    private String title;
+
+    /**
+     * 关键词
+     */
+    @ApiModelProperty(value = "关键词")
+    private String keywords;
+
+    @ApiModelProperty(value = "租户Id")
+    private  Long  tenantId;
+
+
+}

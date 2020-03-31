@@ -40,8 +40,8 @@ eureka:
 mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  mapper-locations: classpath:mapper/*DAO.xml
-  type-aliases-package: com.yueyang.center.domain.*
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.yueyang.center.domain.entity.*
 
 
 pagehelper:
