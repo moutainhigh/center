@@ -7,7 +7,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.ComponentScan;
 
 @MapperScan(value = "com.yueyang.domain.mapper")
-@SpringBootApplication(scanBasePackages = "com.yueyang")
+@SpringBootApplication(scanBasePackages = "com.yueyang.center")
 @ComponentScan(basePackages = "com.yueyang")
 @ServletComponentScan
 public class CmsApplication {

@@ -18,6 +18,24 @@ spring:
   devtools:
     add-properties: false
 
+eureka:
+  instance:
+    app-group-name: "中心"
+    appname: "中心"
+    prefer-ip-address: true
+    #健康心跳时间
+    lease-renewal-interval-in-seconds: 10
+    #最长剔除时间
+    lease-expiration-duration-in-seconds: 20
+  client:
+    registerWithEureka: true #是否向服务注册中心注册自己
+    fetchRegistry: true #是否检索服务
+    serviceUrl: #服务注册中心的配置内容，指定服务注册中心的位置
+      #      defaultZone: http://47.96.14.235:9001/eureka/
+      defaultZone: http://127.0.0.1:8081/eureka/
+    #      defaultZone: http://eureka.xinhuamm.com:8081/eureka/
+    healthcheck:
+      enabled: false
 
 mybatis:
   configuration:
