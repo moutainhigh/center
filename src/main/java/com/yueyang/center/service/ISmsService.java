@@ -3,7 +3,7 @@ package com.yueyang.center.service;
 /**
  * @program: gusteau-live
  * @description: 发送短信的接口
- * @author: wxy
+ * @author: qxy
  * @create: 2020-03-31 11:33
  **/
 public interface ISmsService {
